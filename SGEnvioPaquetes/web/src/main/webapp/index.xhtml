@@ -1,87 +1,139 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-    JBoss, Home of Professional Open Source
-    Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-    contributors by the @authors tag. See the copyright.txt in the
-    distribution for a full listing of individual contributors.
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:ui="http://java.sun.com/jsf/facelets"
-   xmlns:f="http://java.sun.com/jsf/core"
-   xmlns:h="http://java.sun.com/jsf/html"
-   template="/WEB-INF/templates/default.xhtml">
-   <ui:define name="content">
-      <h1>Welcome to JBoss!</h1>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
-      <div>
-         <p>You have successfully deployed a Java EE 6 Enterprise Application.</p>
-         <h3>Your application can run on:</h3>
-         <img src="resources/gfx/dualbrand_as7eap.png"/>
-      </div>
 
-      <h:form id="reg">
-         <h2>Member Registration</h2>
-         <p>Enforces annotation-based constraints defined on the model class.</p>
-         <h:panelGrid columns="3" columnClasses="titleCell">
-            <h:outputLabel for="name" value="Name:"/>
-            <h:inputText id="name" value="#{newMember.name}" />
-            <h:message for="name" errorClass="invalid"/>
 
-            <h:outputLabel for="email" value="Email:"/>
-            <h:inputText id="email" value="#{newMember.email}"/>
-            <h:message for="email" errorClass="invalid"/>
+<ui:composition template="/WEB-INF/templates/defaultLayout.xhtml">
 
-            <h:outputLabel for="phoneNumber" value="Phone #:"/>
-            <h:inputText id="phoneNumber" value="#{newMember.phoneNumber}"/>
-            <h:message for="phoneNumber" errorClass="invalid"/>
-         </h:panelGrid>
+	<!-- Definiendo la cabecera de la pagina -->
+	<ui:define name="title">
+		<h:outputText value="Trabajador" />
+	</ui:define>
 
-         <p>
-            <h:panelGrid columns="2">
-               <h:commandButton id="register" action="#{memberController.register}" value="Register" styleClass="register"/>
-               <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
-                           globalOnly="true"/>
-            </h:panelGrid>
-         </p>
-      </h:form>
-      <h2>Members</h2>
-      <h:panelGroup rendered="#{empty members}">
-         <em>No registered members.</em>
-      </h:panelGroup>
-      <h:dataTable var="_member" value="#{members}" rendered="#{not empty members}" styleClass="simpletablestyle">
-         <h:column>
-            <f:facet name="header">Id</f:facet>
-                #{_member.id}
-            </h:column>
-         <h:column>
-            <f:facet name="header">Name</f:facet>
-                #{_member.name}
-            </h:column>
-         <h:column>
-            <f:facet name="header">Email</f:facet>
-                #{_member.email}
-            </h:column>
-         <h:column>
-            <f:facet name="header">Phone #</f:facet>
-                #{_member.phoneNumber}
-            </h:column>
-         <h:column>
-            <f:facet name="header">REST URL</f:facet>
-            <a href="#{request.contextPath}/rest/members/#{_member.id}">/rest/members/#{_member.id}</a>
-         </h:column>
-         <f:facet name="footer">
-            REST URL for all members: <a href="#{request.contextPath}/rest/members">/rest/members</a>
-         </f:facet>
-      </h:dataTable>
-   </ui:define>
+
+	<!-- content -->
+	<ui:define name="menu-left">
+		<ui:include src="/WEB-INF/menus/submenu.xhtml" />
+	</ui:define>
+
+
+	<!-- Definiendo el cuerpo de la pagina -->
+	<ui:define name="content">
+
+		<h:form>
+			<h:selectOneMenu value="#{empresaMB.itemSelected}">
+				<f:selectItems value="#{empresaMB.items}" />
+			</h:selectOneMenu>
+
+
+			<table>
+				<tr>
+					<td>id</td>
+					<td><h:inputText value="#{empresaMB.empresa.idempresa}" /></td>
+					<td>Rason social</td>
+					<td><h:inputText value="#{empresaMB.empresa.razonSocial}" /></td>
+
+				</tr>
+				<tr>
+					<td>ruc</td>
+
+					<td><h:inputText value="#{empresaMB.empresa.ruc}" /></td>
+
+				</tr>
+			</table>
+
+			<h:commandButton value="grabar" action="#{empresaMB.crearEmpresa()}" />
+		</h:form>
+
+		<div>
+			<div class="buttons">
+				<h:form>
+					<div class="tiptip">
+						<h:commandLink styleClass="button left" title="Nuevo Trabajador"
+							onclick="dlgCrearTrabajador.show();return false;">
+							<span class="icon icon3"></span>
+							<span class="label">Nuevo</span>
+						</h:commandLink>
+						<h:commandLink action="#" styleClass="button middle"
+							title="Editar Trabajador">
+							<span class="icon icon145"></span>
+							<span class="label">Editar</span>
+						</h:commandLink>
+						<h:commandLink action="#" styleClass="button right"
+							title="Eliminar Trabajador">
+							<span class="icon icon186"></span>
+							<span class="label">Eliminar</span>
+						</h:commandLink>
+					</div>
+					<div class="dropdown">
+						<h:outputLink styleClass="button">
+							<span class="icon icon96">&nbsp;</span>
+							<span class="label">Otros</span>
+							<span class="toggle">&nbsp;</span>
+						</h:outputLink>
+						<div class="dropdown-slider">
+							<h:commandLink action="#" styleClass="ddm">
+								<span class="icon icon96">&nbsp;</span>
+								<span class="label">Vacaciones</span>
+							</h:commandLink>
+							<h:commandLink action="#" styleClass="ddm">
+								<span class="icon icon96">&nbsp;</span>
+								<span class="label">Mas</span>
+							</h:commandLink>
+							<h:commandLink action="#" styleClass="ddm">
+								<span class="icon icon96">&nbsp;</span>
+								<span class="label">Mas</span>
+							</h:commandLink>
+						</div>
+						<!-- /.dropdown-slider -->
+					</div>
+					<!-- /.dropdown -->
+				</h:form>
+			</div>
+		</div>
+		<div>
+			<div class="buttons">
+				<h:form>
+					<table>
+						<tr>
+							<td><h:outputLabel>Buscar:</h:outputLabel></td>
+							<td><p:inputText id="txtBuscar" size="80" /> <p:watermark
+									value="search for" for="txtBuscar" /></td>
+						</tr>
+					</table>
+				</h:form>
+			</div>
+		</div>
+		<table>
+			<tr>
+				<td>Campo 1</td>
+				<td><p:inputText></p:inputText></td>
+			</tr>
+			<tr>
+				<td>Campo 1</td>
+				<td><p:inputText></p:inputText></td>
+			</tr>
+			<tr>
+				<td>Campo 1</td>
+				<td><p:inputText></p:inputText></td>
+			</tr>
+		</table>
+		<div>
+			<button class="action green">
+				<span class="label">Save</span>
+			</button>
+			<button class="action">
+				<span class="label">Cancel</span>
+			</button>
+		</div>
+
+
+	</ui:define>
 </ui:composition>
+</html>
