@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<h:outputStylesheet library="css" name="stylesheet.css" />
+	<h:outputStylesheet library="css" name="menu-left.css" />
+	<h:outputStylesheet library="css" name="content.css" />
+
+	<!-- primefaces css -->
+	<h:outputStylesheet library="css" name="default.css" />
+
+	<!-- Google Style buttons -->
+	<h:outputStylesheet library="css" name="css3-buttons.css" />
+	<h:outputStylesheet library="css" name="tiptip.css" />
+
+	<h:outputScript library="js" name="jquery.tiptip.js"></h:outputScript>
+
+	<script type="text/javascript">
+            $(document).ready(function () {
+                 // Launch TipTip tooltip
+                $('.tiptip a.button, .tiptip button').tipTip();
+
+                // Toggle the dropdown menu's
+                $(".dropdown .button, .dropdown button").click(function () {
+                    $(this).parent().find('.dropdown-slider').slideToggle('fast');
+                    $(this).find('span.toggle').toggleClass('active');
+                    return false;
+                });
+
+                // Close open dropdown slider/s by clicking elsewhwere on page
+                $(document).bind('click', function (e) {
+                    if (e.target.id != $('.dropdown').attr('class')) {
+                        $('.dropdown-slider').slideUp();
+                        $('span.toggle').removeClass('active');
+                    }
+                }); // END document.bind
+
+            });
+        </script>
+
+	<title><ui:insert name="title" /></title>
+</h:head>
+
+<h:body>
+
+	<!-- header -->
+	<ui:include src="header.xhtml" />
+
+
+	<div class="content">
+		<table class="sf-SideBarLayout" cellpadding="0" cellspacing="0">
+			<tbody>
+				<tr>
+					<td class="sf-layout-sidebar-widget sf-wide-layout-sidebar-widget">
+
+						<!-- menu-left --> <ui:insert name="menu-left">
+							<span>Menu en construccion</span>
+						</ui:insert>
+					</td>
+					<td>
+						<!-- content --> <ui:insert name="content">
+							<span>Pagina en construccion</span>
+						</ui:insert>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+	<!-- footer -->
+	<ui:include src="footer.xhtml" />
+</h:body>
+</html>
