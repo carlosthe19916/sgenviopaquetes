@@ -32,6 +32,10 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
 		</license>
 	</licenses>
+	<properties>
+		<org.richfaces.bom.version>4.1.0.Final</org.richfaces.bom.version>
+	</properties>
+
 	<repositories>
 
 		<!-- Primefaces repositorie -->
@@ -50,6 +54,20 @@
 		</repository>
 
 	</repositories>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.richfaces</groupId>
+				<artifactId>richfaces-bom</artifactId>
+				<version>${org.richfaces.bom.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 
 		<!-- Dependency on the EJB module so we can use it's services if needed -->
@@ -108,7 +126,7 @@
 		</dependency>
 
 
-		<!-- Primefaces repositorie -->
+		<!-- Primefaces repositories -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
@@ -119,8 +137,18 @@
 			<groupId>org.primefaces.themes</groupId>
 			<artifactId>bootstrap</artifactId>
 			<version>1.0.9</version>
+
 		</dependency>
 
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>richfaces-components-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.core</groupId>
+			<artifactId>richfaces-core-impl</artifactId>
+		</dependency>
+		
 		<!-- JSF repositorie -->
 		<dependency>
 			<groupId>javax.faces</groupId>
