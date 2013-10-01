@@ -1,8 +1,12 @@
+/target
+
 # Directories #
 /build/
 /bin/
 target/
 target-test/
+
+
 
 # OS Files #
 .DS_Store
