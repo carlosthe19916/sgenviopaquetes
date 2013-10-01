@@ -125,7 +125,6 @@
 			</exclusions>
 		</dependency>
 
-
 		<!-- Primefaces repositories -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
