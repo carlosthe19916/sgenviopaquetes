@@ -16,7 +16,6 @@ public class TarifaPeso implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idtarifapeso;
 
 	@Column(name="peso_max")
@@ -27,7 +26,7 @@ public class TarifaPeso implements Serializable {
 
 	private double tarifa;
 
-	@Column(name="tipo_rotulacion", length=30)
+	@Column(name="tipo_rotulacion")
 	private String tipoRotulacion;
 
 	//bi-directional many-to-one association to OrdenServico

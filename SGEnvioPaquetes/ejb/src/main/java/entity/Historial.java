@@ -10,25 +10,24 @@ import java.util.Date;
  * 
  */
 @Entity
-@Table(name="historial")
 @NamedQuery(name="Historial.findAll", query="SELECT h FROM Historial h")
 public class Historial implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idhistorial;
 
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
 
-	@Column(length=10)
 	private String hora;
 
-	@Column(name="ip_acceso", length=20)
+	@Column(name="ip_acceso")
 	private String ipAcceso;
 
-	@Column(length=30)
+	@Column(name="nombre_tabla")
+	private String nombreTabla;
+
 	private String operacion;
 
 	//bi-directional many-to-one association to Personal
@@ -69,6 +68,14 @@ public class Historial implements Serializable {
 
 	public void setIpAcceso(String ipAcceso) {
 		this.ipAcceso = ipAcceso;
+	}
+
+	public String getNombreTabla() {
+		return this.nombreTabla;
+	}
+
+	public void setNombreTabla(String nombreTabla) {
+		this.nombreTabla = nombreTabla;
 	}
 
 	public String getOperacion() {

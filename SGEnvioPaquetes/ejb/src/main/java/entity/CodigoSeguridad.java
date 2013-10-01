@@ -15,10 +15,10 @@ public class CodigoSeguridad implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="idcodigo_seguridad", unique=true, nullable=false)
+	@Column(name="idcodigo_seguridad")
 	private Integer idcodigoSeguridad;
 
-	@Column(name="codigo_asignado_cliente", length=30)
+	@Column(name="codigo_asignado_cliente")
 	private String codigoAsignadoCliente;
 
 	@Column(name="codigo_barras")

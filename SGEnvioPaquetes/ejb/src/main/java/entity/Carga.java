@@ -10,29 +10,32 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="carga")
 @NamedQuery(name="Carga.findAll", query="SELECT c FROM Carga c")
 public class Carga implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idcarga;
-
-	//bi-directional many-to-one association to Conductor
-	@ManyToOne
-	@JoinColumn(name="id_conductor")
-	private Conductor conductor1;
-
-	//bi-directional many-to-one association to Conductor
-	@ManyToOne
-	@JoinColumn(name="id_copiloto")
-	private Conductor conductor2;
 
 	//bi-directional many-to-one association to HorarioSalida
 	@ManyToOne
 	@JoinColumn(name="id_horario")
 	private HorarioSalida horarioSalida;
+
+	//bi-directional many-to-one association to Personal
+	@ManyToOne
+	@JoinColumn(name="id_conductor")
+	private Personal personal1;
+
+	//bi-directional many-to-one association to Personal
+	@ManyToOne
+	@JoinColumn(name="id_copiloto")
+	private Personal personal2;
+
+	//bi-directional many-to-one association to Personal
+	@ManyToOne
+	@JoinColumn(name="id_personal_responsable")
+	private Personal personal3;
 
 	//bi-directional many-to-one association to Vehiculo
 	@ManyToOne
@@ -58,28 +61,36 @@ public class Carga implements Serializable {
 		this.idcarga = idcarga;
 	}
 
-	public Conductor getConductor1() {
-		return this.conductor1;
-	}
-
-	public void setConductor1(Conductor conductor1) {
-		this.conductor1 = conductor1;
-	}
-
-	public Conductor getConductor2() {
-		return this.conductor2;
-	}
-
-	public void setConductor2(Conductor conductor2) {
-		this.conductor2 = conductor2;
-	}
-
 	public HorarioSalida getHorarioSalida() {
 		return this.horarioSalida;
 	}
 
 	public void setHorarioSalida(HorarioSalida horarioSalida) {
 		this.horarioSalida = horarioSalida;
+	}
+
+	public Personal getPersonal1() {
+		return this.personal1;
+	}
+
+	public void setPersonal1(Personal personal1) {
+		this.personal1 = personal1;
+	}
+
+	public Personal getPersonal2() {
+		return this.personal2;
+	}
+
+	public void setPersonal2(Personal personal2) {
+		this.personal2 = personal2;
+	}
+
+	public Personal getPersonal3() {
+		return this.personal3;
+	}
+
+	public void setPersonal3(Personal personal3) {
+		this.personal3 = personal3;
 	}
 
 	public Vehiculo getVehiculo() {

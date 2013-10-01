@@ -10,22 +10,19 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="cliente")
 @NamedQuery(name="Cliente.findAll", query="SELECT c FROM Cliente c")
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idcliente;
 
-	@Column(name="representante_legal", length=150)
+	@Column(name="representante_legal")
 	private String representanteLegal;
 
-	@Column(length=11)
 	private String ruc;
 
-	@Column(name="tipo_cliente", length=15)
+	@Column(name="tipo_cliente")
 	private String tipoCliente;
 
 	//bi-directional many-to-one association to Persona

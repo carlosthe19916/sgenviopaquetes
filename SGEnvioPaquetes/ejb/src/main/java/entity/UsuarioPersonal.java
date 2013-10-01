@@ -16,13 +16,13 @@ public class UsuarioPersonal implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="idusuario_personal", unique=true, nullable=false)
+	@Column(name="idusuario_personal")
 	private Integer idusuarioPersonal;
 
-	@Column(name="clave_usuario", length=45)
+	@Column(name="clave_usuario")
 	private String claveUsuario;
 
-	@Column(name="nombre_usuario", length=30)
+	@Column(name="nombre_usuario")
 	private String nombreUsuario;
 
 	//bi-directional many-to-one association to Rol

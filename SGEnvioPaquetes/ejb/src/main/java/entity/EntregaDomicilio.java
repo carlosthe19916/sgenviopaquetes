@@ -15,16 +15,16 @@ public class EntregaDomicilio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="identrega_domicilio", unique=true, nullable=false)
+	@Column(name="identrega_domicilio")
 	private Integer identregaDomicilio;
 
 	@Column(name="costo_envio")
 	private double costoEnvio;
 
-	@Column(name="direccion_entrega", length=200)
+	@Column(name="direccion_entrega")
 	private String direccionEntrega;
 
-	@Column(name="estado_solicitud", length=15)
+	@Column(name="estado_solicitud")
 	private String estadoSolicitud;
 
 	//bi-directional many-to-one association to Entrega

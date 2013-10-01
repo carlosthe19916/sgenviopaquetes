@@ -10,31 +10,30 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="ubigeo")
 @NamedQuery(name="Ubigeo.findAll", query="SELECT u FROM Ubigeo u")
 public class Ubigeo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_ubigeo", unique=true, nullable=false)
+	@Column(name="id_ubigeo")
 	private Integer idUbigeo;
 
-	@Column(name="codigo_distrito", nullable=false)
+	@Column(name="codigo_distrito")
 	private Integer codigoDistrito;
 
-	@Column(name="codigo_provincia", nullable=false)
+	@Column(name="codigo_provincia")
 	private Integer codigoProvincia;
 
-	@Column(name="codigo_region", nullable=false)
+	@Column(name="codigo_region")
 	private Integer codigoRegion;
 
-	@Column(name="nombre_distrito", nullable=false, length=50)
+	@Column(name="nombre_distrito")
 	private String nombreDistrito;
 
-	@Column(name="nombre_provincia", nullable=false, length=50)
+	@Column(name="nombre_provincia")
 	private String nombreProvincia;
 
-	@Column(name="nombre_region", nullable=false, length=50)
+	@Column(name="nombre_region")
 	private String nombreRegion;
 
 	//bi-directional many-to-one association to Persona

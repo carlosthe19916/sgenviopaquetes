@@ -10,34 +10,26 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="sucursal")
 @NamedQuery(name="Sucursal.findAll", query="SELECT s FROM Sucursal s")
 public class Sucursal implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idsucursal;
 
-	@Column(length=150)
 	private String denominacion;
 
-	@Column(length=200)
 	private String direccion;
 
-	@Column(length=10)
 	private String movil;
 
-	@Column(length=10)
 	private String movil2;
 
-	@Column(length=200)
 	private String representante;
 
-	@Column(name="ruc_representante", length=11)
+	@Column(name="ruc_representante")
 	private String rucRepresentante;
 
-	@Column(length=12)
 	private String telefono;
 
 	//bi-directional many-to-one association to Personal

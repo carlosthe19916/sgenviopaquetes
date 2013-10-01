@@ -16,13 +16,12 @@ public class HorarioSalida implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="idhorario_salida", unique=true, nullable=false)
+	@Column(name="idhorario_salida")
 	private Integer idhorarioSalida;
 
-	@Column(name="hora_llega", length=20)
-	private String horaLlega;
+	private String dia;
 
-	@Column(name="hora_salida", length=20)
+	@Column(name="hora_salida")
 	private String horaSalida;
 
 	//bi-directional many-to-one association to Carga
@@ -45,12 +44,12 @@ public class HorarioSalida implements Serializable {
 		this.idhorarioSalida = idhorarioSalida;
 	}
 
-	public String getHoraLlega() {
-		return this.horaLlega;
+	public String getDia() {
+		return this.dia;
 	}
 
-	public void setHoraLlega(String horaLlega) {
-		this.horaLlega = horaLlega;
+	public void setDia(String dia) {
+		this.dia = dia;
 	}
 
 	public String getHoraSalida() {

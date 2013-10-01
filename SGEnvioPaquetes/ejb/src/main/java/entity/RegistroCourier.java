@@ -16,16 +16,15 @@ public class RegistroCourier implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="idregistro_courier", unique=true, nullable=false)
+	@Column(name="idregistro_courier")
 	private Integer idregistroCourier;
 
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
 
-	@Column(length=10)
 	private String hora;
 
-	@Column(name="tipo_registro", length=15)
+	@Column(name="tipo_registro")
 	private String tipoRegistro;
 
 	//bi-directional many-to-one association to Carga

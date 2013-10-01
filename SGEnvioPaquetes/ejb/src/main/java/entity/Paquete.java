@@ -10,18 +10,15 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="paquete")
 @NamedQuery(name="Paquete.findAll", query="SELECT p FROM Paquete p")
 public class Paquete implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idpaquete;
 
 	private Integer cantidad;
 
-	@Column(length=50)
 	private String descripcion;
 
 	private double importe;

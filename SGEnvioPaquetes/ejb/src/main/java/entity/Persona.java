@@ -10,43 +10,32 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="persona")
 @NamedQuery(name="Persona.findAll", query="SELECT p FROM Persona p")
 public class Persona implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idpersona;
 
-	@Column(name="apellido_materno", length=40)
+	@Column(name="apellido_materno")
 	private String apellidoMaterno;
 
-	@Column(name="apellido_paterno", length=40)
+	@Column(name="apellido_paterno")
 	private String apellidoPaterno;
 
-	@Column(length=30)
 	private String correo;
 
-	@Column(length=150)
 	private String direccion;
 
-	@Column(length=8)
 	private String dni;
 
-	@Column(length=50)
 	private String nombres;
 
-	@Column(length=12)
 	private String telefono;
 
 	//bi-directional many-to-one association to Cliente
 	@OneToMany(mappedBy="persona")
 	private List<Cliente> clientes;
-
-	//bi-directional many-to-one association to Conductor
-	@OneToMany(mappedBy="persona")
-	private List<Conductor> conductors;
 
 	//bi-directional many-to-one association to Ubigeo
 	@ManyToOne
@@ -144,28 +133,6 @@ public class Persona implements Serializable {
 		cliente.setPersona(null);
 
 		return cliente;
-	}
-
-	public List<Conductor> getConductors() {
-		return this.conductors;
-	}
-
-	public void setConductors(List<Conductor> conductors) {
-		this.conductors = conductors;
-	}
-
-	public Conductor addConductor(Conductor conductor) {
-		getConductors().add(conductor);
-		conductor.setPersona(this);
-
-		return conductor;
-	}
-
-	public Conductor removeConductor(Conductor conductor) {
-		getConductors().remove(conductor);
-		conductor.setPersona(null);
-
-		return conductor;
 	}
 
 	public Ubigeo getUbigeo() {

@@ -10,18 +10,24 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="ruta")
 @NamedQuery(name="Ruta.findAll", query="SELECT r FROM Ruta r")
 public class Ruta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idruta;
+
+	private Boolean estado;
+
+	private double tarifa;
 
 	//bi-directional many-to-one association to HorarioSalida
 	@OneToMany(mappedBy="ruta")
 	private List<HorarioSalida> horarioSalidas;
+
+	//bi-directional many-to-one association to OrdenServico
+	@OneToMany(mappedBy="ruta")
+	private List<OrdenServico> ordenServicos;
 
 	//bi-directional many-to-one association to Ubigeo
 	@ManyToOne
@@ -33,10 +39,6 @@ public class Ruta implements Serializable {
 	@JoinColumn(name="id_destino")
 	private Ubigeo ubigeo2;
 
-	//bi-directional many-to-one association to TarifaRuta
-	@OneToMany(mappedBy="ruta")
-	private List<TarifaRuta> tarifaRutas;
-
 	public Ruta() {
 	}
 
@@ -46,6 +48,22 @@ public class Ruta implements Serializable {
 
 	public void setIdruta(Integer idruta) {
 		this.idruta = idruta;
+	}
+
+	public Boolean getEstado() {
+		return this.estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
+	public double getTarifa() {
+		return this.tarifa;
+	}
+
+	public void setTarifa(double tarifa) {
+		this.tarifa = tarifa;
 	}
 
 	public List<HorarioSalida> getHorarioSalidas() {
@@ -70,6 +88,28 @@ public class Ruta implements Serializable {
 		return horarioSalida;
 	}
 
+	public List<OrdenServico> getOrdenServicos() {
+		return this.ordenServicos;
+	}
+
+	public void setOrdenServicos(List<OrdenServico> ordenServicos) {
+		this.ordenServicos = ordenServicos;
+	}
+
+	public OrdenServico addOrdenServico(OrdenServico ordenServico) {
+		getOrdenServicos().add(ordenServico);
+		ordenServico.setRuta(this);
+
+		return ordenServico;
+	}
+
+	public OrdenServico removeOrdenServico(OrdenServico ordenServico) {
+		getOrdenServicos().remove(ordenServico);
+		ordenServico.setRuta(null);
+
+		return ordenServico;
+	}
+
 	public Ubigeo getUbigeo1() {
 		return this.ubigeo1;
 	}
@@ -84,28 +124,6 @@ public class Ruta implements Serializable {
 
 	public void setUbigeo2(Ubigeo ubigeo2) {
 		this.ubigeo2 = ubigeo2;
-	}
-
-	public List<TarifaRuta> getTarifaRutas() {
-		return this.tarifaRutas;
-	}
-
-	public void setTarifaRutas(List<TarifaRuta> tarifaRutas) {
-		this.tarifaRutas = tarifaRutas;
-	}
-
-	public TarifaRuta addTarifaRuta(TarifaRuta tarifaRuta) {
-		getTarifaRutas().add(tarifaRuta);
-		tarifaRuta.setRuta(this);
-
-		return tarifaRuta;
-	}
-
-	public TarifaRuta removeTarifaRuta(TarifaRuta tarifaRuta) {
-		getTarifaRutas().remove(tarifaRuta);
-		tarifaRuta.setRuta(null);
-
-		return tarifaRuta;
 	}
 
 }

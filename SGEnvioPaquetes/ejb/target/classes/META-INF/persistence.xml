@@ -26,6 +26,30 @@
       <!-- The datasource is deployed as <EAR>/META-INF/SGEnvioPaquetes-ds.xml, you
          can find it in the source at ear/src/main/application/META-INF/SGEnvioPaquetes-ds.xml -->
       <jta-data-source>java:jboss/datasource/EnvioPaqueteDS</jta-data-source>
+      <class>entity.Carga</class>
+      <class>entity.Cargo</class>
+      <class>entity.Cliente</class>
+      <class>entity.CodigoSeguridad</class>
+      <class>entity.DetalleCarga</class>
+      <class>entity.Empresa</class>
+      <class>entity.Entrega</class>
+      <class>entity.EntregaDomicilio</class>
+      <class>entity.Historial</class>
+      <class>entity.HorarioSalida</class>
+      <class>entity.OrdenServico</class>
+      <class>entity.Paquete</class>
+      <class>entity.Persona</class>
+      <class>entity.Personal</class>
+      <class>entity.RegistroCourier</class>
+      <class>entity.Rol</class>
+      <class>entity.Ruta</class>
+      <class>entity.Servicio</class>
+      <class>entity.Sucursal</class>
+      <class>entity.TarifaPeso</class>
+      <class>entity.Ubigeo</class>
+      <class>entity.UsuarioCliente</class>
+      <class>entity.UsuarioPersonal</class>
+      <class>entity.Vehiculo</class>
       <properties>
          <!-- Properties for Hibernate -->
          <property name="hibernate.hbm2ddl.auto" value="validate" />

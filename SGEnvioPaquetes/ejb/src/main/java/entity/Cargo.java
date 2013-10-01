@@ -10,19 +10,15 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="cargo")
 @NamedQuery(name="Cargo.findAll", query="SELECT c FROM Cargo c")
 public class Cargo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idcargo;
 
-	@Column(length=40)
 	private String denominacion;
 
-	@Column(length=2147483647)
 	private String descripcion;
 
 	private Boolean estado;

@@ -11,26 +11,23 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="entrega")
 @NamedQuery(name="Entrega.findAll", query="SELECT e FROM Entrega e")
 public class Entrega implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer identrega;
 
-	@Column(length=100)
 	private String consignatario;
 
-	@Column(name="dni_consignatario", length=10)
+	@Column(name="dni_consignatario")
 	private String dniConsignatario;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_entrega")
 	private Date fechaEntrega;
 
-	@Column(name="hora_entrega", length=10)
+	@Column(name="hora_entrega")
 	private String horaEntrega;
 
 	//bi-directional many-to-one association to OrdenServico

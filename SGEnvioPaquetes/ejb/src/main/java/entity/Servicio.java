@@ -10,16 +10,13 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="servicio")
 @NamedQuery(name="Servicio.findAll", query="SELECT s FROM Servicio s")
 public class Servicio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idservicio;
 
-	@Column(length=60)
 	private String denominacion;
 
 	@Column(name="peso_max")

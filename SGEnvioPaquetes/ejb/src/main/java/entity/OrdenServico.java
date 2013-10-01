@@ -17,26 +17,25 @@ public class OrdenServico implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idorden;
 
-	@Column(name="estado_envio", length=32)
+	@Column(name="estado_envio")
 	private String estadoEnvio;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_recojo")
 	private Date fechaRecojo;
 
-	@Column(name="hora_recojo", length=10)
+	@Column(name="hora_recojo")
 	private String horaRecojo;
 
-	@Column(name="nro_comprobante", length=12)
+	@Column(name="nro_comprobante")
 	private String nroComprobante;
 
 	@Column(name="pero_neto")
 	private double peroNeto;
 
-	@Column(name="tipo_comprobante", length=15)
+	@Column(name="tipo_comprobante")
 	private String tipoComprobante;
 
 	//bi-directional many-to-one association to DetalleCarga
@@ -62,6 +61,11 @@ public class OrdenServico implements Serializable {
 	@JoinColumn(name="id_personal_responsable")
 	private Personal personal;
 
+	//bi-directional many-to-one association to Ruta
+	@ManyToOne
+	@JoinColumn(name="id_ruta")
+	private Ruta ruta;
+
 	//bi-directional many-to-one association to Servicio
 	@ManyToOne
 	@JoinColumn(name="id_servicio")
@@ -71,11 +75,6 @@ public class OrdenServico implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="id_tarifa_peso")
 	private TarifaPeso tarifaPeso;
-
-	//bi-directional many-to-one association to TarifaRuta
-	@ManyToOne
-	@JoinColumn(name="id_tarifa_lugar")
-	private TarifaRuta tarifaRuta;
 
 	//bi-directional many-to-one association to Paquete
 	@OneToMany(mappedBy="ordenServico")
@@ -208,6 +207,14 @@ public class OrdenServico implements Serializable {
 		this.personal = personal;
 	}
 
+	public Ruta getRuta() {
+		return this.ruta;
+	}
+
+	public void setRuta(Ruta ruta) {
+		this.ruta = ruta;
+	}
+
 	public Servicio getServicio() {
 		return this.servicio;
 	}
@@ -222,14 +229,6 @@ public class OrdenServico implements Serializable {
 
 	public void setTarifaPeso(TarifaPeso tarifaPeso) {
 		this.tarifaPeso = tarifaPeso;
-	}
-
-	public TarifaRuta getTarifaRuta() {
-		return this.tarifaRuta;
-	}
-
-	public void setTarifaRuta(TarifaRuta tarifaRuta) {
-		this.tarifaRuta = tarifaRuta;
 	}
 
 	public List<Paquete> getPaquetes() {

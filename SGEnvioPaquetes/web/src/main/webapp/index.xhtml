@@ -28,7 +28,7 @@
 
 		<h:form>
 			<h:selectOneMenu value="#{empresaMB.itemSelected}">
-				<f:selectItems value="#{empresaMB.items}" />
+				<f:selectItems value="#{empresaMB.items}" var="eMB" itemLabel="#{eMB.modulo}" itemValue="#{eMB.idrol}"/>
 			</h:selectOneMenu>
 
 

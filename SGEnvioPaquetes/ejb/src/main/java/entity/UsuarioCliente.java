@@ -15,13 +15,13 @@ public class UsuarioCliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="idusuario_cliente", unique=true, nullable=false)
+	@Column(name="idusuario_cliente")
 	private Integer idusuarioCliente;
 
-	@Column(name="clave_usuario", length=45)
+	@Column(name="clave_usuario")
 	private String claveUsuario;
 
-	@Column(name="nombre_usuario", length=30)
+	@Column(name="nombre_usuario")
 	private String nombreUsuario;
 
 	//bi-directional many-to-one association to Cliente

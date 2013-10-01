@@ -4,28 +4,26 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
+
 /**
  * The persistent class for the empresa database table.
  * 
  */
 @Entity
-@Table(name = "empresa", schema = "dbo")
-@NamedQuery(name = "Empresa.findAll", query = "SELECT e FROM Empresa e")
+@NamedQuery(name="Empresa.findAll", query="SELECT e FROM Empresa e")
 public class Empresa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique = true, nullable = false)
 	private Integer idempresa;
 
-	@Column(name = "razon_social", length = 60)
+	@Column(name="razon_social")
 	private String razonSocial;
 
-	@Column(length = 12)
 	private String ruc;
 
-	// bi-directional many-to-one association to Sucursal
-	@OneToMany(mappedBy = "empresa")
+	//bi-directional many-to-one association to Sucursal
+	@OneToMany(mappedBy="empresa")
 	private List<Sucursal> sucursals;
 
 	public Empresa() {

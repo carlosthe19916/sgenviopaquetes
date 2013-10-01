@@ -10,25 +10,20 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="vehiculo")
 @NamedQuery(name="Vehiculo.findAll", query="SELECT v FROM Vehiculo v")
 public class Vehiculo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
 	private Integer idvehiculo;
 
-	@Column(length=2147483647)
 	private String descripcion;
 
-	@Column(length=30)
 	private String marca;
 
-	@Column(length=30)
 	private String modelo;
 
-	@Column(name="nro_placa", length=8)
+	@Column(name="nro_placa")
 	private String nroPlaca;
 
 	//bi-directional many-to-one association to Carga

@@ -3,6 +3,7 @@ package entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+
 /**
  * The persistent class for the rol database table.
  * 
@@ -13,19 +14,17 @@ import javax.persistence.*;
 @NamedQueries({ @NamedQuery(name = Rol.ALL, query = "Select s From Rol s") })
 public class Rol implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	public final static String ALL = "entity.Rol.ALL";
 
 	@Id
-	@Column(unique = true, nullable = false)
 	private Integer idrol;
 
-	@Column(length = 30)
 	private String modulo;
 
-	// bi-directional many-to-one association to UsuarioPersonal
+	//bi-directional many-to-one association to UsuarioPersonal
 	@ManyToOne
-	@JoinColumn(name = "id_usuario_personal")
+	@JoinColumn(name="id_usuario_personal")
 	private UsuarioPersonal usuarioPersonal;
 
 	public Rol() {
