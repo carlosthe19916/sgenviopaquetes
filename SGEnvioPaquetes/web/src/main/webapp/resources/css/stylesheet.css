@@ -122,7 +122,7 @@ table[Attributes Style] {
 	cursor: pointer;
 }
 
-.sf-menu-ul-left .sf-menu-ul-li-a {
+.sf-menu-ul-left {
 	border-right: none;
 	border-left: 1px solid #7AB47F;
 	margin: 0;
