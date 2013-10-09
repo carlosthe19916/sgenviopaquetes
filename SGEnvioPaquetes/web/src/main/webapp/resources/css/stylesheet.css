@@ -110,26 +110,21 @@ table[Attributes Style] {
 }
 
 .sf-menu-ul-li-a {
+	text-transform:uppercase;
 	color: #fff !important;
 	height: 28px;
 	padding: 12px 20px 0;
 	border-right: 1px solid #769ed4;
-	text-shadow: 0 -1px 0 #1d52a3;
+	/*text-shadow: 0 -1px 0 #1d52a3;*/
 	padding: 12px 20px 0;
 	border-right: 1px solid #fff;
 	font-weight: bold;
 	float: left;
 	cursor: pointer;
 }
-
-.sf-menu-ul-left {
-	border-right: none;
-	border-left: 1px solid #7AB47F;
-	margin: 0;
-}
-
-.sf-menu-ul-li-a:hover {	
-	background:while;
+.sf-menu-ul-li-a:HOVER {	
+	color: #fff;
+	background:aqua;
 	-webkit-box-shadow: inset 1px 1px 0 #1d52a3, inset -1px -1px 0 #fff;
 	   -moz-box-shadow: inset 1px 1px 0 #1d52a3, inset -1px -1px 0 #fff;
 	        box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #fff;
@@ -138,7 +133,6 @@ table[Attributes Style] {
 	/*text-shadow: 0 1px 0 #4E7BB5;*/
 	
 }
-
 .sf-menu-ul-li-a:FOCUS {
 	background-image: linear-gradient(top, #0e3e89 0, #5886c2 100%);
 	background-image: -o-linear-gradient(top, #0e3e89 0, #5886c2 100%);
@@ -153,6 +147,13 @@ table[Attributes Style] {
 	cursor: pointer;
 	text-shadow: 0 1px 0 #1d52a3;
 }
+
+.sf-menu-ul-left {
+	border-right: none;
+	border-left: 1px solid #7AB47F;
+	margin: 0;
+}
+
 
 .sf-SideBarLayout {
 	width: 100%;
