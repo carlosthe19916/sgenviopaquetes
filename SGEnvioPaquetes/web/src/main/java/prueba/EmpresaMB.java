@@ -8,11 +8,11 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import entity.Empresa;
+import entity.Rol;
 import boundary.local.EmpresaServicesLocal;
 import boundary.local.RolServicesLocal;
 import boundary.remote.RolServicesRemote;
-import entity.Empresa;
-import entity.Rol;
 
 @ManagedBean
 @ViewScoped
