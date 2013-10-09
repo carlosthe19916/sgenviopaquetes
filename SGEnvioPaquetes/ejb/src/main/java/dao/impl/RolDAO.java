@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 
 import logger.Log;
 import dao.*;
-import entity.Empresa;
 import entity.Rol;
 @Stateless
 @TransactionAttribute(TransactionAttributeType.MANDATORY)

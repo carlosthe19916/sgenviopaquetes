@@ -2,10 +2,10 @@
     <wb-module deploy-name="SGEnvioPaquetes-ear">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
-        <dependent-module archiveName="SGEnvioPaquetes-web.war" deploy-path="/" handle="module:/resource/SGEnvioPaquetes-web/SGEnvioPaquetes-web">
+        <dependent-module archiveName="SGEnvioPaquetes-web.war" deploy-path="/" handle="module:/classpath/var/M2_REPO/org/softgreen/dao/SGEnvioPaquetes-web/0.0.1-SNAPSHOT/SGEnvioPaquetes-web-0.0.1-SNAPSHOT.war">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="SGEnvioPaquetes-ejb.jar" deploy-path="/" handle="module:/resource/SGEnvioPaquetes-ejb/SGEnvioPaquetes-ejb">
+        <dependent-module archiveName="SGEnvioPaquetes-ejb.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/org/softgreen/dao/SGEnvioPaquetes-ejb/0.0.1-SNAPSHOT/SGEnvioPaquetes-ejb-0.0.1-SNAPSHOT.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
