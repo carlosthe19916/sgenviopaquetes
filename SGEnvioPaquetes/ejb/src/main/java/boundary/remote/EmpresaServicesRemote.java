@@ -24,4 +24,5 @@ public interface EmpresaServicesRemote {
 	public List<Empresa> findByNamedQuery(String Personanatural, Map<String, Object> parameters);
 
 	public List<Empresa> findByNamedQuery(String namedQueryName, Map<String, Object> parameters, int resultLimit);
+
 }

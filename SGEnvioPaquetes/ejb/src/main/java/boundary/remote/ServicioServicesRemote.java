@@ -25,4 +25,5 @@ public interface ServicioServicesRemote {
 	public List<Servicio> findByNamedQuery(String Personanatural, Map<String, Object> parameters);
 
 	public List<Servicio> findByNamedQuery(String namedQueryName, Map<String, Object> parameters, int resultLimit);
+
 }
