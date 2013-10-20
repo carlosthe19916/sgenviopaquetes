@@ -28,52 +28,52 @@ public class ServicioServiceBean implements ServicioServicesLocal {
 	
 	@Override
 	public Servicio create(Servicio oServicio) {
-		
+		oServicioDAO.create(oServicio);
 		return null;
 	}
 
 	@Override
 	public Servicio find(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return oServicioDAO.find(id);
 	}
 
 	@Override
 	public void delete(Servicio oServicio) {
-		// TODO Auto-generated method stub
+		oServicioDAO.delete(oServicio);
 		
 	}
 
 	@Override
 	public Servicio update(Servicio oServicio) {
-		// TODO Auto-generated method stub
+		oServicioDAO.update(oServicio);
 		return null;
 	}
 
 	@Override
 	public Collection<Servicio> findByNamedQuery(String queryName) {
-		// TODO Auto-generated method stub
+		oServicioDAO.findByNamedQuery(queryName);
 		return null;
 	}
 
 	@Override
 	public Collection<Servicio> findByNamedQuery(String queryName,
 			int resultLimit) {
-		// TODO Auto-generated method stub
+		oServicioDAO.findByNamedQuery(queryName,resultLimit);
 		return null;
 	}
 
 	@Override
-	public List<Servicio> findByNamedQuery(String Personanatural,
+	public List<Servicio> findByNamedQuery(String namedQueryName,
 			Map<String, Object> parameters) {
-		// TODO Auto-generated method stub
+		oServicioDAO.findByNamedQuery(namedQueryName,parameters);
 		return null;
 	}
 
 	@Override
 	public List<Servicio> findByNamedQuery(String namedQueryName,
 			Map<String, Object> parameters, int resultLimit) {
-		// TODO Auto-generated method stub
+		oServicioDAO.findByNamedQuery(namedQueryName,parameters,resultLimit);
 		return null;
 	}
 

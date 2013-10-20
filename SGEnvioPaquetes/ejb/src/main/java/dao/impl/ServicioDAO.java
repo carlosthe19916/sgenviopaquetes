@@ -1,12 +1,16 @@
 package dao.impl;
 
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import logger.Log;
 import dao.AbstractDAO;
 import entity.Servicio;
-
+@Stateless
+@TransactionAttribute(TransactionAttributeType.MANDATORY)
 public class ServicioDAO extends AbstractDAO<Servicio>{
 
 	public ServicioDAO() {

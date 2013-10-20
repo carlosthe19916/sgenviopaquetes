@@ -8,10 +8,8 @@ import javax.ejb.Local;
 
 import entity.Servicio;
 import boundary.remote.ServicioServicesRemote;
-
 @Local
 public interface ServicioServicesLocal extends ServicioServicesRemote{
-	
 	public Servicio create(Servicio oServicio);
 
 	public Servicio find(Integer id);
@@ -24,7 +22,7 @@ public interface ServicioServicesLocal extends ServicioServicesRemote{
 
 	public Collection<Servicio> findByNamedQuery(String queryName, int resultLimit);
 
-	public List<Servicio> findByNamedQuery(String Personanatural, Map<String, Object> parameters);
+	public List<Servicio> findByNamedQuery(String namedQueryName, Map<String, Object> parameters);
 
 	public List<Servicio> findByNamedQuery(String namedQueryName, Map<String, Object> parameters, int resultLimit);
 
