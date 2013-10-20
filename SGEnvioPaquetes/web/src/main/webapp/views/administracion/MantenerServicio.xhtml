@@ -25,8 +25,28 @@
 
 	<!-- Definiendo el cuerpo de la pagina -->
 	<ui:define name="content">
-
-		holaaa
+		<p:accordionPanel value="#{servicioMB.servicios}" var="servicio">  
+    <p:tab title="#{servicio.denominacion}">  
+        <h:panelGrid columns="2" cellpadding="10">  
+          
+            <p:graphicImage value="/images/logo.jpg"/>  
+  			 
+  			 
+            <h:panelGrid columns="2" cellpadding="10">  
+                <h:outputText value="Nombre: " />  
+                <h:outputText value="#{servicio.denominacion}" style="font-weight: bold"/>  
+  
+                <h:outputText value="Sucursal: " />  
+                <h:outputText value="#{servicio.sucursal.denominacion}" style="font-weight: bold"/>  
+  
+                <h:outputText value="Tarifa: " />  
+                <h:outputText value="#{servicio.tarifaServicio}" style="font-weight: bold"/>  
+            </h:panelGrid>  
+  
+        </h:panelGrid>  
+  
+    </p:tab>  
+</p:accordionPanel>  
 
 	</ui:define>
 </ui:composition>

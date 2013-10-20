@@ -1,7 +1,9 @@
 package entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.List;
 
 
@@ -10,7 +12,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Servicio.findAll", query="SELECT s FROM Servicio s")
+@NamedQueries({ @NamedQuery(name = "entity.Empresa.findAll", query = "Select s From Servicio s") })
 public class Servicio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
